@@ -4,30 +4,32 @@ CREATE DATABASE chat;
 
 USE chat;
 
-CREATE TABLE users (
-  id int NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (id),
-  username varchar(20)
-);
+-- CREATE TABLE users (
+--   id int NOT NULL AUTO_INCREMENT,
+--   PRIMARY KEY (id),
+--   username varchar(20)
+-- );
 
-CREATE TABLE rooms (
-  id int NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (id),
-  roomname varchar(20)
-);
+-- CREATE TABLE rooms (
+--   id int NOT NULL AUTO_INCREMENT,
+--   PRIMARY KEY (id),
+--   roomname varchar(20)
+-- );
 
 CREATE TABLE messages (
-  id int NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (id),
+  message_id int NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (message_id),
   textInMessage varchar(100),
-  user_id int NOT NULL,
-  room_id int NOT NULL,
+  username varchar(20),
+  roomname varchar(20)
+  -- user_id int NOT NULL,
+  -- room_id int NOT NULL,
   /*user_id int,
   room_id int,*/
-  INDEX (user_id),
-  INDEX (room_id),
-  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-  FOREIGN KEY (room_id) REFERENCES rooms(id) ON DELETE CASCADE
+  -- INDEX (user_id),
+  -- INDEX (room_id),
+  -- FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+  -- FOREIGN KEY (room_id) REFERENCES rooms(id) ON DELETE CASCADE
   /*FOREIGN KEY (roomid)
     REFERENCES rooms (id)*/
 );
